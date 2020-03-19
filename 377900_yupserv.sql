@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1deb1
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: mariadb-001.wc1:3306
--- Generation Time: Jan 28, 2020 at 08:08 AM
--- Server version: 10.1.34-MariaDB-1~jessie
--- PHP Version: 7.3.8-1+0~20190807.43+debian10~1.gbp7731bf
+-- Host: 127.0.0.1
+-- Generation Time: Mar 16, 2020 at 11:12 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `377900_yupserv`
+-- Database: `yupserve`
 --
 
 -- --------------------------------------------------------
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `ct_admin_notification` (
   `text` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=323 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='store admin notifications for book and task end';
+) ENGINE=InnoDB AUTO_INCREMENT=326 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='store admin notifications for book and task end';
 
 --
 -- Dumping data for table `ct_admin_notification`
@@ -426,7 +426,10 @@ INSERT INTO `ct_admin_notification` (`id`, `order_id`, `text`, `created_at`) VAL
 (319, 1120, 'Service appointment has been booked for #1120', '2019-11-07 14:19:06'),
 (320, 1120, 'Service appointment has been booked for ID #1120', '2019-11-07 14:19:06'),
 (321, 1121, 'Service appointment has been booked for #1121', '2019-12-22 20:02:35'),
-(322, 1121, 'Service appointment has been booked for ID #1121', '2019-12-22 20:02:35');
+(322, 1121, 'Service appointment has been booked for ID #1121', '2019-12-22 20:02:35'),
+(323, 1123, 'Service appointment has been booked for #1123', '2020-03-04 19:47:19'),
+(324, 1124, 'Service appointment has been booked for #1124', '2020-03-04 20:26:16'),
+(325, 1125, 'Service appointment has been booked for #1125', '2020-03-09 16:42:02');
 
 -- --------------------------------------------------------
 
@@ -480,7 +483,7 @@ CREATE TABLE IF NOT EXISTS `ct_bookings` (
   `gc_event_id` varchar(255) DEFAULT NULL,
   `gc_staff_event_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ct_bookings`
@@ -608,7 +611,11 @@ INSERT INTO `ct_bookings` (`id`, `order_id`, `client_id`, `order_date`, `booking
 (129, 1118, 49, '2019-10-27', '2019-10-27 15:00:00', 14, 0, 0, 0, 0, 'C', '', '', '0', '2019-10-27 01:43:41', 'U', '19', '', ''),
 (130, 1119, 17, '2019-11-01', '2019-11-01 18:00:00', 14, 0, 0, 0, 0, 'R', 'no response', '', '0', '2019-11-07 03:03:26', 'U', '', '', ''),
 (131, 1120, 17, '2019-11-07', '2019-11-07 17:00:00', 14, 0, 0, 0, 0, 'C', '', '', '0', '2019-11-07 03:03:55', 'U', '14', '', ''),
-(132, 1121, 50, '2019-12-22', '2019-12-23 11:00:00', 5, 0, 0, 0, 0, 'C', '', '', '0', '2019-12-22 20:02:35', 'U', '20', '', '');
+(132, 1121, 50, '2019-12-22', '2019-12-23 11:00:00', 5, 0, 0, 0, 0, 'C', '', '', '0', '2019-12-22 20:02:35', 'U', '20', '', ''),
+(133, 1122, 48, '2020-03-03', '2020-03-04 11:00:00', 14, 0, 0, 0, 0, 'A', '', '', '0', '2020-03-03 15:30:53', 'U', '', '', ''),
+(134, 1123, 2, '2020-03-04', '2020-03-05 11:00:00', 2, 0, 0, 0, 0, 'A', '', '', '0', '2020-03-04 19:47:19', 'U', '', '', ''),
+(135, 1124, 51, '2020-03-04', '2020-03-05 17:00:00', 1, 0, 0, 0, 0, 'A', '', '', '0', '2020-03-04 20:26:16', 'U', '', '', ''),
+(136, 1125, 2, '2020-03-09', '2020-03-10 17:00:00', 1, 0, 0, 0, 0, 'A', '', '', '0', '2020-03-09 16:42:02', 'U', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -625,7 +632,7 @@ CREATE TABLE IF NOT EXISTS `ct_booking_addons` (
   `addons_service_qty` int(11) NOT NULL,
   `addons_service_rate` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ct_booking_addons`
@@ -777,7 +784,11 @@ INSERT INTO `ct_booking_addons` (`id`, `order_id`, `service_id`, `addons_service
 (158, 1118, 14, 31, 1, 99),
 (159, 1119, 14, 31, 1, 0),
 (160, 1120, 14, 31, 1, 0),
-(161, 1121, 5, 24, 1, 0);
+(161, 1121, 5, 24, 1, 0),
+(162, 1122, 14, 31, 1, 99),
+(163, 1123, 2, 30, 1, 10),
+(164, 1124, 1, 3, 1, 99),
+(165, 1125, 1, 1, 1, 99);
 
 -- --------------------------------------------------------
 
@@ -980,7 +991,7 @@ CREATE TABLE IF NOT EXISTS `ct_booking_status_history` (
   `status` enum('A','C','R') COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='table to store order status history to be maintained';
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='table to store order status history to be maintained';
 
 --
 -- Dumping data for table `ct_booking_status_history`
@@ -1097,7 +1108,10 @@ INSERT INTO `ct_booking_status_history` (`id`, `order_id`, `user_id`, `status`, 
 (108, 1117, 17, 'A', '2019-10-24 17:47:58'),
 (109, 1119, 17, 'A', '2019-11-01 15:10:39'),
 (110, 1120, 17, 'A', '2019-11-07 14:19:06'),
-(111, 1121, 50, 'A', '2019-12-22 20:02:35');
+(111, 1121, 50, 'A', '2019-12-22 20:02:35'),
+(112, 1123, 0, 'A', '2020-03-04 19:47:19'),
+(113, 1124, 51, 'A', '2020-03-04 20:26:16'),
+(114, 1125, 0, 'A', '2020-03-09 16:42:02');
 
 -- --------------------------------------------------------
 
@@ -1188,7 +1202,7 @@ CREATE TABLE IF NOT EXISTS `ct_booking_task_history` (
   `is_read` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=554 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='table to store staff task history';
+) ENGINE=InnoDB AUTO_INCREMENT=557 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='table to store staff task history';
 
 --
 -- Dumping data for table `ct_booking_task_history`
@@ -1747,7 +1761,10 @@ INSERT INTO `ct_booking_task_history` (`id`, `order_id`, `staff_id`, `customer_i
 (550, 1119, 0, 17, 'Task has been rejected by Yupserve Team for order #1119', 0, '2019-11-07 14:33:26'),
 (551, 1120, 14, 17, 'Task has been assigned for order #1120', 0, '2019-11-07 14:35:05'),
 (552, 1121, 0, 50, 'Service appointment has been booked for #1121', 0, '2019-12-22 20:02:35'),
-(553, 1121, 20, 50, 'Task has been assigned for order #1121', 0, '2019-12-23 11:01:37');
+(553, 1121, 20, 50, 'Task has been assigned for order #1121', 0, '2019-12-23 11:01:37'),
+(554, 1123, 0, 0, 'Service appointment has been booked for #1123', 0, '2020-03-04 19:47:19'),
+(555, 1124, 0, 51, 'Service appointment has been booked for #1124', 0, '2020-03-04 20:26:16'),
+(556, 1125, 0, 0, 'Service appointment has been booked for #1125', 0, '2020-03-09 16:42:02');
 
 -- --------------------------------------------------------
 
@@ -2212,14 +2229,14 @@ CREATE TABLE IF NOT EXISTS `ct_order_client_info` (
   `client_personal_info` text NOT NULL,
   `order_duration` bigint(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=183 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ct_order_client_info`
 --
 
 INSERT INTO `ct_order_client_info` (`id`, `order_id`, `client_name`, `client_email`, `client_phone`, `client_personal_info`, `order_duration`) VALUES
-(1, 0, 'yupserve.com', '', '', '', 0),
+(1, 0, 'localhosts', '', '', '', 0),
 (57, 1001, 'Shivaram Mahapatro', 'shivaram@ntspl.co.in', '+917682835507', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjQiO3M6NzoiYWRkcmVzcyI7czoxMToiTlRTUEwsIEJCU1IiO3M6NDoiY2l0eSI7czo0OiJCQlNSIjtzOjU6InN0YXRlIjtzOjY6Ik9kaXNoYSI7czo1OiJub3RlcyI7czoxNToiVGVzdCB0ZXN0NiB0ZXN0IjtzOjk6InZjX3N0YXR1cyI7czoxOiItIjtzOjg6InBfc3RhdHVzIjtzOjE6Ii0iO3M6MTQ6ImNvbnRhY3Rfc3RhdHVzIjtzOjA6IiI7fQ==', 30),
 (60, 1004, 'Rakesh Baral', 'rakesh.baral@ntspl.co.in', '+919658983376', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjQiO3M6NzoiYWRkcmVzcyI7czoxMzoiTmlsYWRyaSBWaWhhciI7czo0OiJjaXR5IjtzOjExOiJCaHViYW5lc3dhciI7czo1OiJzdGF0ZSI7czo2OiJPZGlzaGEiO3M6NToibm90ZXMiO3M6MTk6IlRlc3QgVGVzdCBUZXN0IFRlc3QiO3M6OToidmNfc3RhdHVzIjtzOjE6Ii0iO3M6ODoicF9zdGF0dXMiO3M6MToiLSI7czoxNDoiY29udGFjdF9zdGF0dXMiO3M6MDoiIjt9', 30),
 (61, 1005, 'Rakesh Baral', 'rakesh.baral@ntspl.co.in', '+919658983376', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjUiO3M6NzoiYWRkcmVzcyI7czoxMzoiTmlsYWRyaSBWaWhhciI7czo0OiJjaXR5IjtzOjExOiJCaHViYW5lc3dhciI7czo1OiJzdGF0ZSI7czo2OiJPZGlzaGEiO3M6NToibm90ZXMiO3M6MTk6IlRlc3QgVGVzdCBUZXN0IFRlc3QiO3M6OToidmNfc3RhdHVzIjtzOjE6Ii0iO3M6ODoicF9zdGF0dXMiO3M6MToiLSI7czoxNDoiY29udGFjdF9zdGF0dXMiO3M6MDoiIjt9', 35),
@@ -2336,7 +2353,11 @@ INSERT INTO `ct_order_client_info` (`id`, `order_id`, `client_name`, `client_ema
 (175, 1118, 'Rakesh Ojha', 'rakeshkuojha@gmail.com', '+919090696199', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjUiO3M6NzoiYWRkcmVzcyI7czozNzoiUm9hZCBOby05LCBKYWdnYW5hdGggTmFnYXIsIFJhc3VsZ2FyaCI7czo0OiJjaXR5IjtzOjExOiJCaHViYW5lc3dhciI7czo1OiJzdGF0ZSI7czo2OiJPZGlzaGEiO3M6NToibm90ZXMiO3M6MDoiIjtzOjk6InZjX3N0YXR1cyI7czoxOiItIjtzOjg6InBfc3RhdHVzIjtzOjE6Ii0iO3M6MTQ6ImNvbnRhY3Rfc3RhdHVzIjtzOjA6IiI7fQ==', 90),
 (176, 1119, 'Dibyajyoti Mohanty', 'er.dibyajyoti@gmail.com', '+919778228228', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjQiO3M6NzoiYWRkcmVzcyI7czoyMDoiT3Bwb3NpdGUgUGFyayBTdHJlZXQiO3M6NDoiY2l0eSI7czoxMToiQmh1YmFuZXN3YXIiO3M6NToic3RhdGUiO3M6NjoiT2Rpc2hhIjtzOjU6Im5vdGVzIjtzOjA6IiI7czo5OiJ2Y19zdGF0dXMiO3M6MDoiIjtzOjg6InBfc3RhdHVzIjtzOjA6IiI7czoxNDoiY29udGFjdF9zdGF0dXMiO3M6MDoiIjt9', 30),
 (177, 1120, 'Dibyajyoti Mohanty', 'er.dibyajyoti@gmail.com', '+919778228228', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjQiO3M6NzoiYWRkcmVzcyI7czoyMDoiT3Bwb3NpdGUgUGFyayBTdHJlZXQiO3M6NDoiY2l0eSI7czoxMToiQmh1YmFuZXN3YXIiO3M6NToic3RhdGUiO3M6NjoiT2Rpc2hhIjtzOjU6Im5vdGVzIjtzOjA6IiI7czo5OiJ2Y19zdGF0dXMiO3M6MDoiIjtzOjg6InBfc3RhdHVzIjtzOjA6IiI7czoxNDoiY29udGFjdF9zdGF0dXMiO3M6MDoiIjt9', 30),
-(178, 1121, 'Tareni Prasad Mohanty', 'tareniprasad.mohanty@gmail.com', '+919937033526', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMzAiO3M6NzoiYWRkcmVzcyI7czo4MDoiUGxvdCBObyAtNjM0LEZsYXQgTm8gLTIwMixWYWlzaG5vIE1hbnNpb24gYXBwdHMuIEJhcmFiYXJpLCBKYWdhbWFyYSwgS2hhbmRhZ2lyaSwiO3M6NDoiY2l0eSI7czoxMToiQmh1YmFuZXN3YXIiO3M6NToic3RhdGUiO3M6NjoiT2Rpc2hhIjtzOjU6Im5vdGVzIjtzOjA6IiI7czo5OiJ2Y19zdGF0dXMiO3M6MDoiIjtzOjg6InBfc3RhdHVzIjtzOjA6IiI7czoxNDoiY29udGFjdF9zdGF0dXMiO3M6MDoiIjt9', 30);
+(178, 1121, 'Tareni Prasad Mohanty', 'tareniprasad.mohanty@gmail.com', '+919937033526', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMzAiO3M6NzoiYWRkcmVzcyI7czo4MDoiUGxvdCBObyAtNjM0LEZsYXQgTm8gLTIwMixWYWlzaG5vIE1hbnNpb24gYXBwdHMuIEJhcmFiYXJpLCBKYWdhbWFyYSwgS2hhbmRhZ2lyaSwiO3M6NDoiY2l0eSI7czoxMToiQmh1YmFuZXN3YXIiO3M6NToic3RhdGUiO3M6NjoiT2Rpc2hhIjtzOjU6Im5vdGVzIjtzOjA6IiI7czo5OiJ2Y19zdGF0dXMiO3M6MDoiIjtzOjg6InBfc3RhdHVzIjtzOjA6IiI7czoxNDoiY29udGFjdF9zdGF0dXMiO3M6MDoiIjt9', 30),
+(179, 1122, 'Shivaram Mahapatro', 'shivaram@ntspl.co.in', '+917682835507', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjQiO3M6NzoiYWRkcmVzcyI7czoxMjoiVGVzdCBBZGRyZXNzIjtzOjQ6ImNpdHkiO3M6MTE6IkJodWJhbmVzd2FyIjtzOjU6InN0YXRlIjtzOjY6Ik9kaXNoYSI7czo1OiJub3RlcyI7czowOiIiO3M6OToidmNfc3RhdHVzIjtzOjE6Ii0iO3M6ODoicF9zdGF0dXMiO3M6MToiLSI7czoxNDoiY29udGFjdF9zdGF0dXMiO3M6MDoiIjt9', 90),
+(180, 1123, 'Shivaram Mahapatro', 'shivaram@ntspl.co.in', '+917682835507', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjQiO3M6NzoiYWRkcmVzcyI7czoxMToiTlRTUEwsIEJCU1IiO3M6NDoiY2l0eSI7czo0OiJCQlNSIjtzOjU6InN0YXRlIjtzOjY6Ik9kaXNoYSI7czo1OiJub3RlcyI7czoxNDoiVGVzdCBUZXN0IFRlc3QiO3M6OToidmNfc3RhdHVzIjtzOjE6Ii0iO3M6ODoicF9zdGF0dXMiO3M6MToiLSI7czoxNDoiY29udGFjdF9zdGF0dXMiO3M6MDoiIjt9', 30),
+(181, 1124, 'Ramadhir Singh', 'ramadhir.singh@gmail.com', '+918117056655', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjQiO3M6NzoiYWRkcmVzcyI7czoxMjoiVGVzdCBBZGRyZXNzIjtzOjQ6ImNpdHkiO3M6NDoiQkJTUiI7czo1OiJzdGF0ZSI7czo2OiJPZGlzaGEiO3M6NToibm90ZXMiO3M6MDoiIjtzOjk6InZjX3N0YXR1cyI7czoxOiItIjtzOjg6InBfc3RhdHVzIjtzOjE6Ii0iO3M6MTQ6ImNvbnRhY3Rfc3RhdHVzIjtzOjA6IiI7fQ==', 30),
+(182, 1125, 'Shivaram Mahapatro', 'shivaram@ntspl.co.in', '+917682835507', 'YTo4OntzOjM6InppcCI7czo2OiI3NTEwMjQiO3M6NzoiYWRkcmVzcyI7czoxMToiTlRTUEwsIEJCU1IiO3M6NDoiY2l0eSI7czo0OiJCQlNSIjtzOjU6InN0YXRlIjtzOjY6Ik9kaXNoYSI7czo1OiJub3RlcyI7czoxNDoiVGVzdCBUZXN0IFRlc3QiO3M6OToidmNfc3RhdHVzIjtzOjE6Ii0iO3M6ODoicF9zdGF0dXMiO3M6MToiLSI7czoxNDoiY29udGFjdF9zdGF0dXMiO3M6MDoiIjt9', 30);
 
 -- --------------------------------------------------------
 
@@ -2358,7 +2379,7 @@ CREATE TABLE IF NOT EXISTS `ct_otp_count` (
 --
 
 INSERT INTO `ct_otp_count` (`id`, `user_id`, `count`, `expired_at`) VALUES
-(3, 2, 1, '2019-09-10 11:37:56'),
+(3, 2, 1, '2020-03-11 19:49:06'),
 (4, 1, 1, '2019-03-20 08:56:41'),
 (5, 12, 1, '2019-09-11 22:10:56'),
 (6, 3, 1, '2019-10-17 19:41:22');
@@ -3725,7 +3746,7 @@ CREATE TABLE IF NOT EXISTS `ct_users` (
   `usertype` varchar(50) DEFAULT '',
   `cus_dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ct_users`
@@ -3766,13 +3787,13 @@ INSERT INTO `ct_users` (`id`, `user_email`, `user_pwd`, `first_name`, `last_name
 (39, 'pallab_rath1@hotmail.com', '25d55ad283aa400af464c76d713c07ad', 'Corporate', 'Documentations', '+918018099635', '751018', 'SR-18, Pandav nagar, TP Road', 'Bhubaneswar', 'MAHARASHTRA', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-09-04 13:25:50'),
 (40, 'rakesh.baral91@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Rakesh Litu', 'Dash', '+919853918913', '751024', 'Ravi Talkies, Bhubaneswar', 'BHUBANESWAR', 'odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-09-20 10:20:47'),
 (41, 'debasishbehera10@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Debasish', 'Behera', '+917682835509', '751024', 'Bhubaneswar Odisha', 'Bhubaneswar', 'odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-09-20 12:38:36'),
-(44, 'rhrth@hb.cjjc', '25d55ad283aa400af464c76d713c07ad', 'gbghg', 'rthtryh', '+918117056655', '751024', 'fvbbhtrghtryhjyj', 'gvcgvcgv', 'Odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-09-20 17:03:16'),
 (45, 'mahendra.ghodke90@outlook.com', '25d55ad283aa400af464c76d713c07ad', 'Mahendra', 'Ghodke', '+919561635099', '411033', 'Thergaon Pune', 'Pune', 'Odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-09-22 12:02:16'),
 (46, 'chuinaabhisek121@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Abhisek', 'Srichandan', '+919658068618', '751001', '2rb-19,kharvela nagar,unit-3, Bhubaneswar', 'Bhubaneshwar', 'Odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-10-03 17:07:47'),
 (47, 'xxrakesh.baral@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Rakesh ', 'Baral', '+917008939656', '751024', 'Patia, Bhubaneswar', 'Bhubaneswar', 'Odisha', 'Need to audit my GST bill.', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-10-09 09:10:17'),
 (48, 'shivaram@ntspl.co.in', 'd41d8cd98f00b204e9800998ecf8427e', 'Shivaram', 'Mahapatro', '+917682835507', '751024', 'Test Address', 'Bhubaneswar', 'Odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-10-17 10:10:17'),
 (49, 'rakeshkuojha@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Rakesh', 'Ojha', '+919090696199', '751025', 'Road No-9, Jagganath Nagar, Rasulgarh', 'Bhubaneswar', 'Odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-10-27 06:10:41'),
-(50, 'tareniprasad.mohanty@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Tareni Prasad', 'Mohanty', '+919937033526', '751030', 'Plot No -634,Flat No -202,Vaishno Mansion appts. Barabari, Jagamara, Khandagiri,', 'Bhubaneswar', 'Odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-12-22 14:31:21');
+(50, 'tareniprasad.mohanty@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Tareni Prasad', 'Mohanty', '+919937033526', '751030', 'Plot No -634,Flat No -202,Vaishno Mansion appts. Barabari, Jagamara, Khandagiri,', 'Bhubaneswar', 'Odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2019-12-22 14:31:21'),
+(51, 'ramadhir.singh@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Ramadhir', 'Singh', '+918117056655', '751024', 'Test Address', 'BBSR', 'Odisha', '', '-', '-', '', 'E', 'a:1:{i:0;s:6:\"client\";}', '2020-03-04 14:33:16');
 
 -- --------------------------------------------------------
 
@@ -3821,7 +3842,7 @@ INSERT INTO `ct_user_notification` (`id`, `user_id`, `order_id`, `text`, `is_rea
 (23, 1, 1019, 'Task has been assigned for order #1019', 0, '2019-03-20 10:35:01'),
 (24, 1, 1019, 'Booking has been rejected by Yupserve Team for order #1019', 0, '2019-03-20 11:32:41'),
 (25, 2, 1012, 'Task has been assigned for order #1012', 0, '2019-03-20 12:21:57'),
-(26, 2, 1012, 'Booking has been rejected by Yupserve Team for order #1012', 0, '2019-03-20 12:22:14'),
+(26, 2, 1012, 'Booking has been rejected by Yupserve Team for order #1012', 1, '2019-03-20 12:22:14'),
 (27, 17, 1021, 'Task has been assigned for order #1021', 0, '2019-04-06 16:12:23'),
 (28, 17, 1022, 'Task has been assigned for order #1022', 0, '2019-04-06 16:23:06'),
 (29, 17, 1022, 'Task started for odrer #1022', 0, '2019-04-06 16:26:45'),
@@ -4062,12 +4083,12 @@ INSERT INTO `ct_user_notification` (`id`, `user_id`, `order_id`, `text`, `is_rea
 (264, 2, 1096, 'Task has been assigned for order #1096', 0, '2019-10-09 13:28:13'),
 (265, 2, 1096, 'Task started for odrer #1096', 0, '2019-10-09 13:29:01'),
 (266, 2, 1096, 'Service boy requested for approval of task end for order #1096', 0, '2019-10-09 13:29:08'),
-(267, 2, 1096, 'Invoice generated for order #1096', 0, '2019-10-09 13:31:48'),
+(267, 2, 1096, 'Invoice generated for order #1096', 1, '2019-10-09 13:31:48'),
 (268, 2, 1098, 'Task has been assigned for order #1098', 0, '2019-10-09 16:50:10'),
 (269, 2, 1099, 'Task has been assigned for order #1099', 0, '2019-10-09 16:52:50'),
 (270, 2, 1099, 'Task started for odrer #1099', 0, '2019-10-09 16:58:41'),
 (271, 2, 1099, 'Service boy requested for approval of task end for order #1099', 0, '2019-10-09 17:03:14'),
-(272, 2, 1099, 'Invoice generated for order #1099', 0, '2019-10-09 17:11:40'),
+(272, 2, 1099, 'Invoice generated for order #1099', 1, '2019-10-09 17:11:40'),
 (273, 2, 1100, 'Task has been assigned for order #1100', 0, '2019-10-09 17:14:28'),
 (274, 2, 1100, 'Task started for odrer #1100', 0, '2019-10-09 17:14:48'),
 (275, 2, 1100, 'Service boy requested for approval of task end for order #1100', 0, '2019-10-09 17:14:57'),
@@ -4086,7 +4107,7 @@ INSERT INTO `ct_user_notification` (`id`, `user_id`, `order_id`, `text`, `is_rea
 (288, 2, 1102, 'Invoice generated for order #1102', 0, '2019-10-09 21:35:06'),
 (289, 2, 1102, 'Invoice generated for order #1102', 0, '2019-10-09 21:39:49'),
 (290, 2, 1102, 'Invoice generated for order #1102', 0, '2019-10-10 14:58:03'),
-(291, 2, 1102, 'Invoice generated for order #1102', 0, '2019-10-10 15:08:50'),
+(291, 2, 1102, 'Invoice generated for order #1102', 1, '2019-10-10 15:08:50'),
 (292, 2, 1102, 'Invoice generated for order #1102', 0, '2019-10-10 15:35:09'),
 (293, 2, 1102, 'Invoice generated for order #1102', 0, '2019-10-10 15:37:18'),
 (294, 2, 1102, 'Invoice generated for order #1102', 0, '2019-10-10 15:39:58'),
@@ -4140,7 +4161,7 @@ INSERT INTO `ct_user_notification` (`id`, `user_id`, `order_id`, `text`, `is_rea
 (342, 2, 1110, 'Task has been assigned for order #1110', 0, '2019-10-17 18:26:52'),
 (343, 2, 1110, 'Task has been cancelled by service provider for order #1110', 0, '2019-10-17 18:27:23'),
 (344, 2, 1110, 'Task has been assigned for order #1110', 0, '2019-10-17 18:28:26'),
-(345, 2, 1110, 'Task started for odrer #1110', 0, '2019-10-17 18:29:29'),
+(345, 2, 1110, 'Task started for odrer #1110', 1, '2019-10-17 18:29:29'),
 (346, 2, 1110, 'Extra requirements added by service provider for odrer #1110', 0, '2019-10-17 18:29:41'),
 (347, 2, 1110, 'Service boy requested for approval of task end for order #1110', 0, '2019-10-17 18:36:13'),
 (348, 2, 1110, 'Invoice generated for order #1110', 0, '2019-10-17 18:42:28'),
@@ -4182,7 +4203,7 @@ CREATE TABLE IF NOT EXISTS `ct_user_otp` (
 
 INSERT INTO `ct_user_otp` (`id`, `user_id`, `otp`, `created_at`, `expired_at`) VALUES
 (1, 1, '2813', '2019-03-20 08:57:17', '2019-03-20 09:12:17'),
-(2, 2, '2224', '2019-10-17 18:11:57', '2019-10-17 18:26:57'),
+(2, 2, '2736', '2020-03-11 19:34:07', '2020-03-11 19:49:07'),
 (3, 3, '5820', '2019-10-19 09:59:10', '2019-10-19 10:14:10'),
 (4, 15, '7062', '2019-03-20 14:23:02', '2019-03-20 14:38:02'),
 (5, 17, '0571', '2019-12-29 09:34:46', '2019-12-29 09:49:46'),
@@ -4214,18 +4235,19 @@ CREATE TABLE IF NOT EXISTS `ct_user_reg_otp` (
   `created_at` datetime NOT NULL,
   `expired_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ct_user_reg_otp`
 --
 
 INSERT INTO `ct_user_reg_otp` (`id`, `mobile_num`, `otp`, `verify_status`, `created_at`, `expired_at`) VALUES
-(1, '+918117056655', 9501, 1, '2019-09-20 12:03:16', '2019-09-20 12:18:16'),
+(1, '+918117056655', 9121, 1, '2020-03-04 20:23:46', '2020-03-04 20:38:46'),
 (2, '+919561635099', 3914, 1, '2019-09-22 07:02:16', '2019-09-22 07:17:16'),
 (3, '+919658068618', 8452, 1, '2019-10-03 12:07:47', '2019-10-03 12:22:47'),
 (4, '+919821420319', 2774, 0, '2019-12-02 23:44:58', '2019-12-02 23:59:58'),
-(5, '+919937033526', 6861, 1, '2019-12-22 08:31:21', '2019-12-22 08:46:21');
+(5, '+919937033526', 6861, 1, '2019-12-22 08:31:21', '2019-12-22 08:46:21'),
+(6, '+917682835505', 2047, 1, '2020-03-03 10:12:27', '2020-03-03 10:27:27');
 
 -- --------------------------------------------------------
 
